@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket/screens/ticket_view.dart';
 import 'package:ticket/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -76,12 +77,34 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Upcommin Flights",
+                          style: Styles.headLineStyle2,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            debugPrint("you tapped on ink well");
+                          },
+                          child: Text("View all",
+                              style: Styles.textStyle.copyWith(
+                                color: Styles.primaryColor,
+                              )),
+                        ),
+                      ],
                     )
                   ],
                 )
               ],
             ),
-          )
+          ),
+          const TicketView(),
         ],
       ),
     );
