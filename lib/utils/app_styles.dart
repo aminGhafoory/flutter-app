@@ -7,7 +7,8 @@ class Styles {
   static Color primaryColor = primary;
   static Color textColor = const Color(0xFF3b3b3b);
   static Color backgroundColor = const Color(0xFFeeedf2);
-  static Color orangeColor = const Color(0xFF526799);
+  static Color ticketTop = const Color(0xFF526799);
+  static Color ticketBottom = const Color(0xFFF37B67);
   static Color mygrey = const Color(0xFF526480);
   static Color iconColor = const Color(0xFFbfc205);
 
