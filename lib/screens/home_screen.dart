@@ -1,7 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket/screens/hotel_view.dart';
 import 'package:ticket/screens/ticket_view.dart';
 import 'package:ticket/utils/app_styles.dart';
+import 'package:ticket/utils/app_info_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +14,6 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Styles.backgroundColor,
       body: ListView(
         children: [
-          // ignore: avoid_unnecessary_containers
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: Column(
@@ -105,11 +106,44 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left: 20),
-              child: Row(
-                children: const [TicketView(), TicketView(), TicketView()],
-              ))
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: const [TicketView(), TicketView(), TicketView()],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                  onTap: () {
+                    debugPrint("you tapped on ink well hotels");
+                  },
+                  child: Text(
+                    "View all",
+                    style: Styles.textStyle.copyWith(
+                      color: Styles.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children:
+                  hotelList.map((hotel) => HotelView(hotel: hotel)).toList(),
+            ),
+          )
         ],
       ),
     );

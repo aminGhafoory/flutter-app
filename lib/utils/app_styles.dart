@@ -11,6 +11,7 @@ class Styles {
   static Color ticketBottom = const Color(0xFFF37B67);
   static Color mygrey = const Color(0xFF526480);
   static Color iconColor = const Color(0xFFbfc205);
+  static Color khakiColor = const Color(0xFFd2bdd6);
 
   static TextStyle textStyle =
       TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
