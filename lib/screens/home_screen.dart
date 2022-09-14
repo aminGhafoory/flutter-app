@@ -4,6 +4,7 @@ import 'package:ticket/screens/hotel_view.dart';
 import 'package:ticket/screens/ticket_view.dart';
 import 'package:ticket/utils/app_styles.dart';
 import 'package:ticket/utils/app_info_list.dart';
+import 'package:ticket/widgets/app_double_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -82,24 +83,8 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Upcommin Flights",
-                          style: Styles.headLineStyle2,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            debugPrint("you tapped on ink well");
-                          },
-                          child: Text("View all",
-                              style: Styles.textStyle.copyWith(
-                                color: Styles.primaryColor,
-                              )),
-                        ),
-                      ],
-                    )
+                    const AppDoubleTextWidget(
+                        text: "Upcomming Flights", ctaText: "View all")
                   ],
                 )
               ],
@@ -114,26 +99,8 @@ class HomeScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hotels",
-                  style: Styles.headLineStyle2,
-                ),
-                InkWell(
-                  onTap: () {
-                    debugPrint("you tapped on ink well hotels");
-                  },
-                  child: Text(
-                    "View all",
-                    style: Styles.textStyle.copyWith(
-                      color: Styles.primaryColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            child:
+                const AppDoubleTextWidget(text: "Hotels", ctaText: "View all"),
           ),
           const SizedBox(height: 15),
           SingleChildScrollView(
