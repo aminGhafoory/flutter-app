@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:ticket/screens/ticket_view.dart';
 import 'package:ticket/utils/app_info_list.dart';
 import 'package:ticket/utils/app_layout.dart';
@@ -11,8 +10,9 @@ class TicketScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = AppLayout.getSize(context);
+    //final size = AppLayout.getSize(context);
     return Scaffold(
+      backgroundColor: Styles.backgroundColor,
       body: Stack(children: [
         ListView(
           padding: EdgeInsets.symmetric(
