@@ -3,6 +3,7 @@ import 'package:ticket/utils/app_layout.dart';
 import 'package:ticket/utils/app_styles.dart';
 import 'package:ticket/widgets/app_double_text.dart';
 import 'package:ticket/widgets/icon_text.dart';
+import 'package:ticket/widgets/tabs_widget.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -26,45 +27,7 @@ class SearchScreen extends StatelessWidget {
             SizedBox(
               height: AppLayout.getHeight(20),
             ),
-            FittedBox(
-              child: Container(
-                padding: EdgeInsets.all(AppLayout.getHeight(3.5)),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppLayout.getHeight(50)),
-                  color: const Color(0xfff4f6fd),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: AppLayout.getHeight(7)),
-                      width: size.width * 0.44,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft:
-                                Radius.circular(AppLayout.getHeight(50)),
-                            topLeft: Radius.circular(AppLayout.getHeight(50))),
-                        color: Colors.white,
-                      ),
-                      child: const Center(child: Text("Airline tickets")),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: AppLayout.getHeight(7)),
-                      width: size.width * 0.44,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomRight:
-                                Radius.circular(AppLayout.getHeight(50)),
-                            topRight: Radius.circular(AppLayout.getHeight(50))),
-                        color: Colors.transparent,
-                      ),
-                      child: const Center(child: Text("Hotels")),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            const TabWidget(tab1: "Aieline tickets", tab2: "Hotels"),
             SizedBox(
               height: AppLayout.getHeight(25),
             ),
@@ -189,7 +152,8 @@ class SearchScreen extends StatelessWidget {
                                   color: Colors.transparent,
                                   shape: BoxShape.circle,
                                   border: Border.all(
-                                      width: 18, color: Color(0xff189999))),
+                                      width: 18,
+                                      color: const Color(0xff189999))),
                             ))
                       ],
                     ),
@@ -206,7 +170,7 @@ class SearchScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(AppLayout.getHeight(20)),
-                          color: Color(0xffec6545)),
+                          color: const Color(0xffec6545)),
                       child: Column(
                         children: [
                           Text(

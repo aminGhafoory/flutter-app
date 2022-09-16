@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:ticket/utils/app_layout.dart';
 import 'package:ticket/utils/app_styles.dart';
 import 'package:ticket/widgets/thick_container.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const TicketView({super.key, required this.ticket});
+  final bool? isColor;
+  const TicketView({super.key, required this.ticket, this.isColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class TicketView extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Styles.ticketTop,
+                  color: isColor == null ? Styles.ticketTop : Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(AppLayout.getHeight(21)),
                       topRight: Radius.circular(AppLayout.getHeight(21))),
@@ -35,11 +37,13 @@ class TicketView extends StatelessWidget {
                       children: [
                         Text(
                           "${ticket['from']['code']}",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                          style: isColor == null
+                              ? Styles.headLineStyle3
+                                  .copyWith(color: Colors.white)
+                              : Styles.headLineStyle3,
                         ),
                         const Spacer(),
-                        const ThickContainer(),
+                        ThickContainer(isColor: isColor),
                         Expanded(
                             child: Stack(
                           children: [
@@ -57,9 +61,12 @@ class TicketView extends StatelessWidget {
                                           (constraints.constrainWidth() ~/ 6),
                                           (index) => Text(
                                                 "-",
-                                                style: Styles.headLineStyle3
-                                                    .copyWith(
-                                                        color: Colors.white54),
+                                                style: isColor == null
+                                                    ? Styles.headLineStyle3
+                                                        .copyWith(
+                                                            color:
+                                                                Colors.white54)
+                                                    : Styles.headLineStyle3,
                                               )));
                                 },
                               ),
@@ -67,19 +74,25 @@ class TicketView extends StatelessWidget {
                             Center(
                               child: Transform.rotate(
                                   angle: 1.57,
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.local_airport_rounded,
-                                    color: Colors.white,
+                                    color: isColor == null
+                                        ? Colors.white
+                                        : const Color(0xff8accf7),
                                   )),
                             ),
                           ],
                         )),
-                        const ThickContainer(),
+                        ThickContainer(
+                          isColor: isColor,
+                        ),
                         const Spacer(),
                         Text(
                           "${ticket['to']['code']}",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                          style: isColor == null
+                              ? Styles.headLineStyle3
+                                  .copyWith(color: Colors.white)
+                              : Styles.headLineStyle3,
                         )
                       ],
                     ),
@@ -91,23 +104,29 @@ class TicketView extends StatelessWidget {
                           width: AppLayout.getWidth(100),
                           child: Text(
                             "${ticket['from']['name']}",
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: isColor == null
+                                ? Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)
+                                : Styles.headLineStyle3,
                           ),
                         ),
                         //
                         Text(
                           "${ticket['flying_time']}",
-                          style: Styles.headLineStyle4
-                              .copyWith(color: Colors.white),
+                          style: isColor == null
+                              ? Styles.headLineStyle4
+                                  .copyWith(color: Colors.white)
+                              : Styles.headLineStyle4,
                         ),
                         SizedBox(
                           width: AppLayout.getWidth(100),
                           child: Text(
                             "${ticket['to']['name']}",
                             textAlign: TextAlign.end,
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: isColor == null
+                                ? Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)
+                                : Styles.headLineStyle3,
                           ),
                         ),
                       ],
