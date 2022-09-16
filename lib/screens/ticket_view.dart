@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticket/utils/app_layout.dart';
 import 'package:ticket/utils/app_styles.dart';
 import 'package:ticket/widgets/thick_container.dart';
@@ -12,7 +13,7 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
-      height: AppLayout.getHeight(200),
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 167 : 169),
       width: size.width * 0.85,
       child: Container(
           margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
@@ -117,7 +118,8 @@ class TicketView extends StatelessWidget {
                           style: isColor == null
                               ? Styles.headLineStyle4
                                   .copyWith(color: Colors.white)
-                              : Styles.headLineStyle4,
+                              : Styles.headLineStyle3
+                                  .copyWith(color: Colors.black),
                         ),
                         SizedBox(
                           width: AppLayout.getWidth(100),
@@ -148,7 +150,9 @@ class TicketView extends StatelessWidget {
                       width: AppLayout.getWidth(10),
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: Styles.backgroundColor,
+                          color: isColor == null
+                              ? Styles.backgroundColor
+                              : Colors.white,
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(AppLayout.getHeight(10)),
                             bottomRight:
@@ -172,7 +176,7 @@ class TicketView extends StatelessWidget {
                                         decoration: BoxDecoration(
                                       color: isColor == null
                                           ? Styles.backgroundColor
-                                          : Styles.headLineStyle3.color,
+                                          : Colors.white,
                                     )),
                                   )),
                         );
@@ -183,7 +187,9 @@ class TicketView extends StatelessWidget {
                       width: AppLayout.getWidth(10),
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: Styles.backgroundColor,
+                          color: isColor == null
+                              ? Styles.backgroundColor
+                              : Colors.white,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(AppLayout.getHeight(10)),
                             bottomLeft:
@@ -220,7 +226,7 @@ class TicketView extends StatelessWidget {
                             height: AppLayout.getHeight(4),
                           ),
                           Text(
-                            "DATE",
+                            "Date",
                             style: Styles.headLineStyle4.copyWith(
                                 color: isColor == null
                                     ? Colors.white
